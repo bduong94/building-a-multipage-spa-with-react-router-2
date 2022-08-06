@@ -11,7 +11,6 @@ const DUMMY_QUOTES = [
 const QuoteDetail = () => {
   const match = useRouteMatch();
   const params = useParams();
-  const commentPath = `/quotes/${params.quoteId}/comments`;
 
   const quote = DUMMY_QUOTES.find((quote) => quote.id === params.quoteId);
 
@@ -28,12 +27,12 @@ const QuoteDetail = () => {
       />
       <Route path={`/quotes/${params.quoteId}/`} exact>
         <div className="centered">
-          <Link className="btn--flat" to={commentPath}>
+          <Link className="btn--flat" to={`${match.url}/comments`}>
             Load Comments
           </Link>
         </div>
       </Route>
-      <Route path={commentPath}>
+      <Route path={`${match.path}/comments`}>
         <Comments />
       </Route>
     </>
