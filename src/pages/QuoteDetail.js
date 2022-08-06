@@ -1,4 +1,4 @@
-import { useParams, Route, Link } from "react-router-dom";
+import { useParams, Route, Link, useRouteMatch } from "react-router-dom";
 
 import Comments from "../components/comments/Comments";
 import HighlightedQuote from "../components/quotes/HighlightedQuote";
@@ -9,6 +9,7 @@ const DUMMY_QUOTES = [
 ];
 
 const QuoteDetail = () => {
+  const match = useRouteMatch();
   const params = useParams();
   const commentPath = `/quotes/${params.quoteId}/comments`;
 
